@@ -1,4 +1,4 @@
-* {
+ * {
   /* box-sizing: border-box; */
 }
 
@@ -25,7 +25,9 @@ input {
  /* TODO */
 }
 .search-container .suggestions {
-   /* TODO */
+   border: 100px;
+   padding: 100px;
+   margin: 100px;
 }
 
 ul {

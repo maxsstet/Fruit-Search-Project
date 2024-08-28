@@ -20,17 +20,19 @@ function search(str) {
 
 
 function searchHandler(e) {
-	search(e.toString());
+	const fruitIdInnerText = document.getElementById('fruit').innerText;
+	search(fruitIdInnerText);
 }
 
 function showSuggestions(results, inputVal) {
-	const fruitIdInnerText = document.getElementById('fruit').innerText;
-	results = searchHandler(fruitIdInnerText);
-	const fruitResultsInnerText = document.getElementsByClassName('suggestions').innerText;
-	fruitResultsInnerText.push(results);
-
-
-
+	results = searchHandler();
+	const fruitResults = document.getElementsByClassName('suggestions');
+	const fruitResultsUl = document.getElementsByClassName('suggestions').children;
+	let li = document.createElement("li");
+	li.push(results);
+	fruitResultsUl.appendChild(li);
+	fruitResults.appendChild(fruitResultsUl);
+	document.appendChild('fruitResults');
 
 }
 
