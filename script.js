@@ -20,7 +20,7 @@ function search(str) {
 
 
 function searchHandler(e) {
-	search();
+	search(e);
 }
 
 function showSuggestions(results, inputVal) {
