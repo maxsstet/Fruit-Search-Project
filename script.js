@@ -20,12 +20,12 @@ function search(str) {
 
 
 function searchHandler(e) {
-	search(e);
+	search(e.toString());
 }
 
 function showSuggestions(results, inputVal) {
 	const fruitIdInnerText = document.getElementById('fruit').innerText;
-	results = search(fruitIdInnerText);
+	results = searchHandler(fruitIdInnerText);
 	const fruitResultsInnerText = document.getElementsByClassName('suggestions').innerText;
 	fruitResultsInnerText.push(results);
 
