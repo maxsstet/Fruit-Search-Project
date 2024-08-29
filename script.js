@@ -10,7 +10,6 @@ function search(str) {
 		return val.includes(lowerCaseInput)
 	});
 	results = fruitFilter;
-	
 
 
 	return results;
@@ -19,20 +18,29 @@ function search(str) {
 
 
 
+
+
+
+
 function searchHandler(e) {
-	const fruitIdInnerText = document.getElementById('fruit').innerText;
-	search(fruitIdInnerText);
-}
+	const fruitIdValue = document.getElementById('fruit').value;
+	return search(fruitIdValue);
+	};
+
+
+
 
 function showSuggestions(results, inputVal) {
-	results = searchHandler();
+	const searchHandlerFunc = searchHandler();
+
+	inputVal = searchHandlerFunc;
+	console.log(inputVal);
 	const fruitResults = document.getElementsByClassName('suggestions');
 	const fruitResultsUl = document.getElementsByClassName('suggestions').children;
 	let li = document.createElement("li");
-	li.push(results);
+	li.push(inputVal);
 	fruitResultsUl.appendChild(li);
-	fruitResults.appendChild(fruitResultsUl);
-	document.appendChild('fruitResults');
+	
 
 }
 
