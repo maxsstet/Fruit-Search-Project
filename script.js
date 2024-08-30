@@ -7,7 +7,7 @@ function search(str) {
 	let results = [];
 	const lowerCaseInput = str.toLowerCase();
 	const fruitFilter = fruit.filter(function(val){
-		return val.includes(lowerCaseInput)
+		return val.toLowerCase().includes(lowerCaseInput)
 	});
 	results = fruitFilter;
 
@@ -23,29 +23,44 @@ function search(str) {
 
 
 function searchHandler(e) {
-	const fruitIdValue = document.getElementById('fruit').value;
-	return search(fruitIdValue);
-	};
+	const inputVal = e.target.value.trim();
+
+    if (inputVal === '') {
+    	suggestions.innerHTML = '';
+        return;
+	}
+const results = search(inputVal);
+showSuggestions(results, inputVal);
+}
 
 
 
 
 function showSuggestions(results, inputVal) {
-	const searchHandlerFunc = searchHandler();
+    suggestions.innerHTML = ''; 
+    if (results.length === 0) {
+		return;
+    }
+    results.forEach(result => {
+        const li = document.createElement('li');
+        li.textContent = result;
+        suggestions.appendChild(li);
 
-	inputVal = searchHandlerFunc;
-	console.log(inputVal);
-	const fruitResults = document.getElementsByClassName('suggestions');
-	const fruitResultsUl = document.getElementsByClassName('suggestions').children;
-	let li = document.createElement("li");
-	li.push(inputVal);
-	fruitResultsUl.appendChild(li);
-	
-
+	});
+	console.log(suggestions.innerHTML);
+	suggestions.style.display = 'block'; // Ensure it's visible
+    suggestions.style.width = `${input.offsetWidth}px`;
 }
 
+
+
+
 function useSuggestion(e) {
-	// TODO
+	if (e.target.tagName === 'LI') {
+        input.value = e.target.textContent;
+        suggestions.innerHTML = '';
+		suggestions.style.display = 'none';
+	}
 }
 
 input.addEventListener('keyup', searchHandler);

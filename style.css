@@ -1,48 +1,105 @@
- * {
-  /* box-sizing: border-box; */
+ 
+* {
+  box-sizing: border-box; 
 }
 
-:focus {
- /* TODO */
+
+ :focus {
+  outline: 2px solid #007BFF; 
+  outline-offset: 2px;
 }
+
 
 body {
-  /* TODO */
+  font-family: Arial, sans-serif; 
+  background: linear-gradient(135deg, #6A0572, #9D0B72, #CF3D71, #F58A90); 
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
 }
+
 
 input {
- /* TODO */
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
+
 .search-container {
- /* TODO */
+  position: relative;
+  width: 300px;
+  
 }
+
 .search-container input,
 .search-container .suggestions {
-  /* TODO */
+  width: 100%; 
+  background: linear-gradient(135deg, #6A0572, #9D0B72, #CF3D71, #F58A90); 
 }
-.search-container input {
- /* TODO */
-}
+
+
 .search-container .suggestions {
-   border: 100px;
-   padding: 100px;
-   margin: 100px;
+  position: static;
+  width: 100%;
+  max-width: 300px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-top: none;
+  background: linear-gradient(135deg, #6A0572, #9D0B72, #CF3D71, #F58A90); 
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: block; 
 }
 
 ul {
-  /* TODO */
-}
-ul.has-suggestions {
-  /* TODO */
-}
-ul li {
-  /* TODO */
-}
-ul li:hover {
-  /* TODO */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-input {
-   /* TODO */
+ul.has-suggestions {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
+
+ul li {
+  padding: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+ul li:hover {
+  background: linear-gradient(135deg, #6A0572, #9D0B72, #CF3D71, #F58A90); 
+}
+
+.suggestions li {
+  padding: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.suggestions.show{
+  display:block;
+}
+
+.suggestions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  background: linear-gradient(135deg, #6A0572, #9D0B72, #CF3D71, #F58A90); 
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 1000;
+  display: none;
+}   
